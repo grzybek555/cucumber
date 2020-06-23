@@ -6,12 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     private static final String webUrl = "https://allegro.pl/";
     public void setupDriver(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
     }
 
     public void tearDown(){

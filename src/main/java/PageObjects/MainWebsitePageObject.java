@@ -12,8 +12,27 @@ public class MainWebsitePageObject extends PageBase {
     @FindBy(xpath = "//form/button")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//button[contains(text(), 'przejdź dalej')]")
+    private WebElement popUpButton;
+
 
     public MainWebsitePageObject(WebDriver driver) {
         super(driver);
+
     }
+
+    public void findItem(String itemName){
+        sendKeys(searchInput, itemName);
+        clickElement(searchButton);
+    }
+
+    public void closePopUp(){
+        try{
+            clickElement(popUpButton);
+        } catch (Exception e){
+
+        }
+    }
+
+
 }
